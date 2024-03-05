@@ -12,7 +12,6 @@ use Symfony\Component\Mime\Email;
 
 class ContactSubscriber implements EventSubscriber
 {
-    
     private $mailer;
 
     public function __construct(MailerInterface $mailer)
@@ -33,11 +32,10 @@ class ContactSubscriber implements EventSubscriber
     {
 //        $args->getObject() nous retourne l'entité concernée par l'événement postPersist
         $entity = $args->getObject();
-        // dd($entity);
 
 //     Vérifier si l'entité est un nouvel objet de type Contact;
 //    Si l'objet persité n'est pas de type Contact, on ne veut pas que le Subscriber se déclenche!
-        if ($entity instanceof Contact) {
+        if ($entity instanceof \App\Entity\Contact) {
 
             $objet = $entity->getObjet();
             $message = $entity->getMessage();
