@@ -12,6 +12,7 @@ use Symfony\Component\Mime\Part\DataPart;
 use Symfony\Component\Mime\Part\File;
 //...
 
+/*
 class MailService
 {
     //On injecte l'interface ParameterBag
@@ -20,8 +21,8 @@ class MailService
     private $mailer;
     public function __construct(ParameterBagInterface $paramBag, MailerInterface $mailer){
 
-        $this->paramBag = $paramBag;
-        $this->mailer = $mailer;
+        //$this->paramBag = $paramBag;
+        //$this->mailer = $mailer;
     }
 
     public function sendMail($expediteur, $destinataire, $sujet, $message)
@@ -43,4 +44,4 @@ class MailService
 //...
     
 
-} 
+} */
