@@ -16,9 +16,11 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
+
 class RegistrationController extends AbstractController
 {
     private EmailVerifier $emailVerifier;
+    //private string $plaintextPassword;
 
     public function __construct(EmailVerifier $emailVerifier)
     {
@@ -86,8 +88,10 @@ class RegistrationController extends AbstractController
     public function index(UserPasswordHasherInterface $passwordHasher): Response
     {
         // ... e.g. get the user data from a registration form
-        $user = new User(...);
-        $plaintextPassword = ...;
+        //$user = new User(...);
+        $user = new Utilisateur('nom_utilisateur', 'email@example.com');
+        //$plaintextPassword = ...;
+        $plaintextPassword = '1234';
 
         // hash the password (based on the security.yaml config for the $user class)
         $hashedPassword = $passwordHasher->hashPassword(
@@ -97,5 +101,6 @@ class RegistrationController extends AbstractController
         $user->setPassword($hashedPassword);
 
         // ...
+        return $this->redirectToRoute('/register');
     }
 }
